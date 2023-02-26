@@ -1,0 +1,55 @@
+<button id="voltarListaBtn" class="back-btn"><span><svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M19 12.5H5" stroke="#132235" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12 19.5L5 12.5L12 5.5" stroke="#132235" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  </span>
+  <span class="hover-underline-animation">Voltar</span>
+</button>
+<section class="gift-section">
+  <img class="item-img" src="../res/demo-prod-img.png" alt="">
+  <div class="gift-info">
+    <div>
+      <h1 class="titulo" id="giftInfoTitulo"></h1>
+      <p class="card-price" id="giftInfoPreco"></p>
+    </div>
+    <div class="info-card">
+      <h2 class="info-card-title">PASSO 1:</h2>
+      <p class="info-card-text">Acesse sua conta e realize o pagamento via Pix ou transferência bancária.</p>
+      <div class="info-card-pagamento">
+        <div class="qr-code-img">
+          <img src="../res/qr-code/item1.png" alt="QRcode pix">
+        </div>
+        <div class="info-card-chave-pix">
+          <p>Chave pix</p>
+          <div class="info-card-pix basic-input">
+            <span>103.237.959-60</span>
+            <button>
+              <img src="../res/copy.svg" alt="Copiar">
+            </button>
+          </div>
+        </div>
+        <span class="info-card-ou">Ou</span>
+        <ul class="info-card-info-banco">
+          <li><strong>Banco:</strong> 0000</li>
+          <li><strong>Conta:</strong> 0000</li>
+          <li><strong>Agência:</strong> 0000</li>
+          <li><strong>CPF:</strong> 103.237.959-60</li>
+        </ul>
+      </div>
+    </div>
+    <div class="info-card">
+      <h2 class="info-card-title">PASSO 2:</h2>
+      <p class="info-card-text">Após realizar o pagamento, insira seu nome completo no campo abaixo e clique no botão concluir. Qualquer problema iremos entrar em contato :)</p>
+      <div class="info-card-confirmacao">
+        <div class="input">
+          <label for="nome">Nome completo</label>
+          <input class="basic-input" type="text" name="nome" id="nome" placeholder="Nome">
+        </div>
+        <button class="primary-btn" id="concluirBtn">
+          <img src="../res/check-circle.svg" alt="">
+          Concluir
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
