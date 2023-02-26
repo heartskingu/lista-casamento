@@ -112,7 +112,7 @@ function setBackHomeBtn() {
 
 function navigateTo(route, params) {
   _routeParams = params;
-  $('#mainContainer').load(`${hostname}/pages/${route}.html`, async () => {
+  $('#mainContainer').load(`${hostname}/lista-casamento/pages/${route}.html`, async () => {
     if (route === 'home') {
       await initHome();
     } else if (route === 'presente') {
