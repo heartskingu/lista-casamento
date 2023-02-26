@@ -1,3 +1,5 @@
+const hostname = window.location.hostname;
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAlu_EBXjKPS3SygjiOs3p4MolE_Jf71Ww",
@@ -110,7 +112,7 @@ function setBackHomeBtn() {
 
 function navigateTo(route, params) {
   _routeParams = params;
-  $('#mainContainer').load(`/pages/${route}.html`, async () => {
+  $('#mainContainer').load(`${hostname}/pages/${route}.html`, async () => {
     if (route === 'home') {
       await initHome();
     } else if (route === 'presente') {
