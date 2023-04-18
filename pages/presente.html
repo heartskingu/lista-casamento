@@ -12,38 +12,70 @@
       <h1 class="titulo" id="giftInfoTitulo"></h1>
       <p class="card-price" id="giftInfoPreco"></p>
     </div>
+
+    <div id="VIPInfo" class="info-card info-card-vip">
+      <div class="info-card-title-container">
+        <h2 class="info-card-title">Último Lance</h2>
+        <p class="card-price" id="giftInfoPrecoLeilao"></p>
+      </div>
+      <img class="info-card-crown" src="res/crown.svg" alt="">
+      <div class="info-card-vip-beneficios">
+        <p>Benefícios:</p>
+        <ul class="info-card-vip-beneficios-list">
+          <li>Bolo personalizado</li>
+          <li>Coroa exclusiva</li>
+          <li>Faixa vencedora</li>
+          <li>Primeiro(a) na fila do Buffet</li>
+        </ul>
+      </div>
+    </div>
+
     <div class="info-card">
       <h2 class="info-card-title">PASSO 1:</h2>
       <p class="info-card-text">Acesse sua conta e realize o pagamento via Pix ou transferência bancária.</p>
       <div class="info-card-pagamento">
-        <div class="qr-code-img">
-          <img src="res/qr-code/item1.png" alt="QRcode pix">
-        </div>
-        <div class="info-card-chave-pix">
-          <p>Chave pix</p>
-          <div class="info-card-pix basic-input">
-            <span>103.237.959-60</span>
-            <button>
-              <img src="res/copy.svg" alt="Copiar">
-            </button>
+        <div style="display: flex; align-items: center;">
+          <div class="qr-code-img" style="margin-right: 32px;">
+            <img src="res/qr-code/item1.png" alt="QRcode pix">
+          </div>
+          <div class="info-card-chave-pix">
+            <p>Chave pix</p>
+            <div class="info-card-pix basic-input">
+              <span>103.237.959-60</span>
+              <button>
+                <img src="res/copy.svg" alt="Copiar">
+              </button>
+            </div>
           </div>
         </div>
+        
         <span class="info-card-ou">Ou</span>
         <ul class="info-card-info-banco">
           <li><strong>Banco:</strong> 0000</li>
           <li><strong>Conta:</strong> 0000</li>
           <li><strong>Agência:</strong> 0000</li>
-          <li><strong>CPF:</strong> 103.237.959-60</li>
+          <li><strong>CPF:</strong> <span style="white-space: nowrap;">103.237.959-60</span></li>
         </ul>
       </div>
     </div>
+
     <div class="info-card">
       <h2 class="info-card-title">PASSO 2:</h2>
       <p class="info-card-text">Após realizar o pagamento, insira seu nome completo no campo abaixo e clique no botão concluir. Qualquer problema iremos entrar em contato :)</p>
       <div class="info-card-confirmacao">
-        <div class="input">
+        <div id="inputValor" class="input">
+          <label for="valor">Valor</label>
+          <input class="basic-input" 
+            type="text" 
+            name="valor" 
+            id="valor" 
+            placeholder="R$ 10000,00">
+          <p class="invalid-input-text" invalid="false">Insira um valor maior que o último lance</p>
+        </div>
+        <div id="inputNome" class="input">
           <label for="nome">Nome completo</label>
-          <input class="basic-input" type="text" name="nome" id="nome" placeholder="Nome">
+          <input class="basic-input" type="text" name="nome" placeholder="Nome">
+          <p class="invalid-input-text" invalid="false">Insira seu nome completo</p>
         </div>
         <button class="primary-btn" id="concluirBtn">
           <img src="res/check-circle.svg" alt="">
