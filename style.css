@@ -15,7 +15,7 @@
   --device-lg: 1200px; */
   --text-color: #132235;
   --primary-color: #2E507D;
-  --primary-disabled-color: #2A2A30;
+  --primary-disabled-color: #8F9899;
   --secondary-color: #C58665;
   --card-border: #DFE2EE;
   --info-card-bg: #F0F0F1;
@@ -43,6 +43,10 @@ button {
   font-size: var(--font-size-sm);
   font-weight: 700;
   line-height: 150%;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .primary-btn {
@@ -292,6 +296,10 @@ button {
   min-width: 0;
 }
 
+.item-card .primary-btn {
+  margin-top: auto;
+}
+
 .gift-list ul .item-card img {
   margin-bottom: 24px;
   height: 153px;
@@ -329,6 +337,7 @@ button {
   flex-basis: 30%;
   border: 1px solid var(--card-border);
   height: fit-content;
+  max-width: 286px;
 }
 
 .gift-info {
@@ -356,6 +365,7 @@ button {
   font-weight: 700;
   line-height: 150%;
   margin-bottom: 8px;
+  text-transform: uppercase;
 }
 
 .info-card-text {
@@ -428,9 +438,15 @@ button {
   align-items: center;
 }
 
-.info-card-pagamento .qr-code-img {
+.info-card-pagamento-pix {
+  display: flex;
+  align-items: center;
+}
+
+.info-card-pagamento .qr-code-img img {
   width: 124px;
   height: 124px;
+  object-fit: cover;
 }
 
 .info-card-chave-pix {
@@ -616,6 +632,13 @@ button {
   .gift-section {
     flex-direction: column;
   }
+
+  .gift-section .item-img {
+    max-width: 100%;
+    max-height: 45vh;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 @media screen and (max-width: 1046px) {
@@ -662,17 +685,6 @@ button {
     margin-bottom: 48px;
   }
 
-  .navbar ul {
-    gap: 16px;
-    justify-content: space-between;
-  }
-  
-  .navbar ul li,
-  .navbar ul li:first-of-type,
-  .navbar ul li:last-of-type {
-    margin: 0px;
-  }
-
   .hover-underline-animation:not(.selected):after {
     transform: scaleX(1);
     transform-origin: bottom left;
@@ -695,6 +707,11 @@ button {
     margin-bottom: 32px;
   }
 
+  .gift-list ul .item-card img {
+    max-height: 486px;
+    height: 100%;
+  }
+
   .dashed-line {
     width: 72px;
   }
@@ -707,11 +724,21 @@ button {
 
   .info-card-pagamento {
     flex-direction: column;
-    gap: 16px;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .info-card-pagamento-pix {
+    width: 100%;
+  }
+
+  .info-card-pagamento-pix .info-card-chave-pix {
+    flex-basis: 50%;
   }
 
   .info-card-info-banco {
     display: flex;
+    flex-direction: column;
     gap: 16px;
   }
 

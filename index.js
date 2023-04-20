@@ -70,7 +70,7 @@ function renderGiftList() {
   const giftListEl = $('.gift-list ul');
 
   giftList = giftList.sort((itemA, itemB) => {
-    return itemA.item < itemB.item ? -1 : itemA.item > itemB.item ? 1 : 0;
+    return itemA.preco - itemB.preco;
   });
 
   giftList = giftList.sort((itemA, itemB) => {
@@ -102,6 +102,7 @@ function renderGiftList() {
     giftButton.innerText = 'Presentear';
     if (giftItem.pagoPor && !giftItem.leilao) {
       $(giftButton).prop('disabled', true);
+      giftButton.innerText = 'Já presenteado';
     }
     giftButton.addEventListener('click', () => {
       navigateTo('presente', giftItem);
@@ -120,6 +121,7 @@ async function initHome() {
 }
 
 function initPresente() {
+  const itemImg = $('#itemImg');
   const giftInfoTitulo = $('#giftInfoTitulo');
   const giftInfoPreco = _routeParams.leilao ? $('#giftInfoPrecoLeilao') : $('#giftInfoPreco');
   const inputNome = $('#inputNome');
@@ -128,6 +130,32 @@ function initPresente() {
   const vipCard = $('#VIPInfo');
   const inputValor = $('#inputValor');
   const inputValorIn = inputValor.find('input');
+  const copiarCPF = $('#copiarCPF');
+  const qrCodeImg = $('#qrCodeImg');
+  const infoCard1 = $('#infoCard1');
+  const infoCard2 = $('#infoCard2');
+  const infoCard2Title = infoCard2.find('h2.info-card-title');
+  const infoCard2Text = infoCard2.find('p.info-card-text');
+
+  itemImg.attr('src', _routeParams.imageUrl);
+  qrCodeImg.attr('src', `res/qr-code/${_routeParams.preco}.png`);
+
+  infoCard1.css('display', !_routeParams.leilao ? 'none' : 'block');
+
+  if (_routeParams.leilao) {
+    infoCard1.css('display', 'none');
+    infoCard2Title.text('Como participar');
+    infoCard2Text.html('Insira um valor maior do que o último lance, depois seu nome completo e clique em concluir. A coroação e o pagamento serão realizados no <b>dia do casamento</b> para o maior lance.')
+  } else {
+    infoCard1.css('display', 'block');
+    infoCard2Title.text('PASSO 2:');
+    infoCard2Text.text('Após realizar o pagamento, insira seu nome completo no campo abaixo e clique no botão concluir. Qualquer problema iremos entrar em contato :)');
+  }
+  
+  copiarCPF.click(() => {
+    navigator.clipboard.writeText('10323795960');
+    alert('Chave copiada!');
+  });
 
   var inputValorInEl = inputValorIn.get()[0];
   var maskOptions = {

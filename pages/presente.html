@@ -6,7 +6,7 @@
   <span class="hover-underline-animation">Voltar</span>
 </button>
 <section class="gift-section">
-  <img class="item-img" src="res/demo-prod-img.png" alt="">
+  <img id="itemImg" class="item-img" src="res/demo-prod-img.png" alt="">
   <div class="gift-info">
     <div>
       <h1 class="titulo" id="giftInfoTitulo"></h1>
@@ -30,19 +30,19 @@
       </div>
     </div>
 
-    <div class="info-card">
+    <div id="infoCard1" class="info-card">
       <h2 class="info-card-title">PASSO 1:</h2>
       <p class="info-card-text">Acesse sua conta e realize o pagamento via Pix ou transferência bancária.</p>
       <div class="info-card-pagamento">
-        <div style="display: flex; align-items: center;">
+        <div class="info-card-pagamento-pix">
           <div class="qr-code-img" style="margin-right: 32px;">
-            <img src="res/qr-code/item1.png" alt="QRcode pix">
+            <img id="qrCodeImg" src="" alt="QRcode pix">
           </div>
           <div class="info-card-chave-pix">
             <p>Chave pix</p>
             <div class="info-card-pix basic-input">
               <span>103.237.959-60</span>
-              <button>
+              <button id="copiarCPF">
                 <img src="res/copy.svg" alt="Copiar">
               </button>
             </div>
@@ -51,15 +51,15 @@
         
         <span class="info-card-ou">Ou</span>
         <ul class="info-card-info-banco">
-          <li><strong>Banco:</strong> 0000</li>
-          <li><strong>Conta:</strong> 0000</li>
-          <li><strong>Agência:</strong> 0000</li>
+          <li><strong>Banco:</strong> 0260 - Nu pagamentos S.A.</li>
+          <li><strong>Agência:</strong> 0001</li>
+          <li><strong>Conta:</strong> 6208030-5</li>
           <li><strong>CPF:</strong> <span style="white-space: nowrap;">103.237.959-60</span></li>
         </ul>
       </div>
     </div>
 
-    <div class="info-card">
+    <div id="infoCard2" class="info-card">
       <h2 class="info-card-title">PASSO 2:</h2>
       <p class="info-card-text">Após realizar o pagamento, insira seu nome completo no campo abaixo e clique no botão concluir. Qualquer problema iremos entrar em contato :)</p>
       <div class="info-card-confirmacao">
