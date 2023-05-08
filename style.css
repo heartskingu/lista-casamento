@@ -498,6 +498,7 @@ button:hover {
   font-size: var(--font-size-md);
   line-height: 150%;
   font-weight: 700;
+  margin: 0 16px;
 }
 
 .info-card-info-banco {

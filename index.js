@@ -12,6 +12,7 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const db = app.firestore();
 
+const appHistory = [];
 let giftList = [];
 let _routeParams = '';
 
@@ -99,7 +100,7 @@ function renderGiftList() {
     giftPrice.innerText = `R$${giftItem.preco},00`;
     const giftButton = document.createElement('button');
     giftButton.classList.add('primary-btn');
-    giftButton.innerText = 'Presentear';
+    giftButton.innerText = !giftItem.leilao ? 'Presentear' : 'Participar';
     if (giftItem.pagoPor && !giftItem.leilao) {
       $(giftButton).prop('disabled', true);
       giftButton.innerText = 'Já presenteado';
@@ -152,10 +153,10 @@ function initPresente() {
     infoCard2Text.text('Após realizar o pagamento, insira seu nome completo no campo abaixo e clique no botão concluir. Qualquer problema iremos entrar em contato :)');
   }
   
-  copiarCPF.click(() => {
-    navigator.clipboard.writeText('10323795960');
-    alert('Chave copiada!');
-  });
+  // copiarCPF.click(() => {
+  //   navigator.clipboard.writeText('10323795960');
+  //   alert('Chave copiada!');
+  // });
 
   var inputValorInEl = inputValorIn.get()[0];
   var maskOptions = {
@@ -243,8 +244,13 @@ function setBackHomeBtn() {
 }
 
 function navigateTo(route, params) {
+  appHistory.push(route);
   _routeParams = params;
   $('#mainContainer').load(`/pages/${route}.html`, async () => {
+    const url = new URL(location);
+    url.searchParams.set('page', route);
+    history.pushState({}, "", url);
+
     if (route === 'home') {
       await initHome();
     } else if (route === 'presente') {
@@ -287,6 +293,11 @@ function createID(){
 
 $('document').ready(async () => {
   navigateTo('home');
+  
+  window.addEventListener('popstate', function(event) {
+    appHistory.pop();
+    navigateTo(appHistory[appHistory.length - 1]);
+}, false);
 
   // const items = [
   //   criarItem(createID(), createID(), 'https://drive.google.com/file/d/10xY79vY1hYsr7AZnXD8qvPAPb2kYlRh4/view?usp=sharing', '1 ano de ração super premium para os gatos'),
